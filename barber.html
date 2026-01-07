@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skopje Barber | Professional Men's Grooming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ELITE BARBER 2026 - Skopje Barber */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --accent: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+      --glass: rgba(255,255,255,0.1);
+      --shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+      --shadow-hover: 0 35px 60px -12px rgba(0,0,0,0.3);
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+      min-height: 100vh;
+    }
+    
+    header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+    
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    h1 {
+      color: var(--dark);
+      font-weight: 800;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    main {
+      padding-top: 100px;
+      padding-bottom: 4rem;
+    }
+    
+    .hero {
+      text-align: center;
+      padding: 6rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .hero h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, white 0%, rgba(255,255,255,0.9) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+    
+    .hero p {
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      color: rgba(255,255,255,0.95);
+      font-weight: 400;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto 4rem;
+    }
+    
+    .service-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(255,255,255,0.4);
+    }
+    
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .service-icon {
+      font-size: 4.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+    }
+    
+    .service-card h3 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    
+    .service-price {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #f59e0b;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .service-time {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(5,150,105,0.4);
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(5,150,105,0.5);
+      color: white;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 4rem auto;
+      max-width: 1000px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: rgba(255,255,255,0.9);
+      font-size: 1.1rem;
+    }
+    
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      color: white;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate { animation: fadeInUp 0.8s ease forwards; }
+    
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero { padding: 4rem 5%; }
+      nav { padding: 1rem; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    
+    /* Scroll effects */
+    .hero h2, .services-grid, .features { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .hero h2.visible, .services-grid.visible, .features.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>SKOPJE BARBER</h1>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="hero">
+      <h2>Professional Haircuts & Beard Trims</h2>
+      <p>Classic styles, fades, and grooming for modern men. Walk-ins welcome. Experienced barbers.</p>
+      
+      <div class="services-grid">
+        <div class="service-card animate" style="animation-delay: 0.2s">
+          <i class="fas fa-scissors car-icon service-icon"></i>
+          <h3>Haircut</h3>
+          <div class="service-price">15€</div>
+          <div class="service-time">30 min</div>
+          <a href="tel:+38976225747" class="cta-button">
+            <i class="fas fa-phone"></i> Book Now
+          </a>
+        </div>
+        
+        <div class="service-card animate" style="animation-delay: 0.4s">
+          <i class="fas fa-hand-holding-heart service-icon"></i>
+          <h3>Beard Trim</h3>
+          <div class="service-price">10€</div>
+          <div class="service-time">20 min</div>
+          <a href="tel:+38976225747" class="cta-button">
+            <i class="fas fa-phone"></i> Book Now
+          </a>
+        </div>
+        
+        <div class="service-card animate" style="animation-delay: 0.6s">
+          <i class="fas fa-crown service-icon"></i>
+          <h3>Full Service</h3>
+          <div class="service-price">22€</div>
+          <div class="service-time">50 min</div>
+          <a href="tel:+38976225747" class="cta-button">
+            <i class="fas fa-phone"></i> Book Now
+          </a>
+        </div>
+      </div>
+      
+      <div class="features animate" style="animation-delay: 0.8s">
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-walkie-talkie"></i></div>
+          <span>Walk-ins Welcome</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+          <span>Experienced Barbers</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <span>Open 7 Days</span>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><i class="fas fa-cutlery"></i></div>
+          <span>Hot Towel Service</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Elite scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.hero h2, .services-grid, .features').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255,255,255,0.98)';
+        header.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+      } else {
+        header.style.background = 'rgba(255,255,255,0.95)';
+        header.style.boxShadow = '0 25px 50px -12px rgba(0,0,0,0.25)';
+      }
+    });
+
+    // Tap-to-call
+    document.querySelectorAll('.cta-button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'tel:+38976225747';
+      });
+    });
+  </script>
+</body>
+</html>
